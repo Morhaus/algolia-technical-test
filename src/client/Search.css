@@ -69,15 +69,6 @@
 }
 
 .resultsCount {
-  /*
-  For some strange reason, AppResult pointer events still apply to their
-  hidden, overflowing parts. Moving resultsCount to the front
-  somewhat fixes this issue.
-  This issue is not present in Firefox.
-  */
-  position: relative;
-  z-index: 1;
-
   border-top: 1px solid rgb(220, 220, 220);
   flex-shrink: 0;
   color: rgb(100, 100, 100);
