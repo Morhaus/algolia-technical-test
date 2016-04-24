@@ -13,18 +13,6 @@ const {
   ALGOLIA_SEARCH_KEY, DEV_SERVER, DEV_PORT, NODE_ENV,
 } = process.env;
 
-if (
-  !ALGOLIA_APP_ID ||
-  !ALGOLIA_INDEX ||
-  !ALGOLIA_ADMIN_KEY ||
-  !ALGOLIA_SEARCH_KEY
-) {
-  throw new Error(
-    'Please provide all the required environment variables. ' +
-    'See the README for more information.'
-  );
-}
-
 const port = PORT || 8080;
 
 const app = createServer({
