@@ -4,7 +4,7 @@
 
 ```sh
 # Add ALGOLIA_SEARCH_KEY, ALGOLIA_ADMIN_KEY, ALGOLIA_APP_ID and ALGOLIA_INDEX
-# to your environment.
+# to your environment. See Configuration below.
 
 git clone https://github.com/Morhaus/algolia-technical-test
 cd algolia-technical-test
