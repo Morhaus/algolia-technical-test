@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
-import ReactListView from 'react-list-view';
 import { InfiniteLoader, AutoSizer, VirtualScroll } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 
@@ -116,42 +115,6 @@ class AppResultList extends Component {
           )}
         </InfiniteLoader>
       </div>
-      /*<ReactListView
-        className={cx(styles.list, className)}
-        rowHeight={this.state.rowHeight}
-        rowCount={appsCount}
-        onScroll={this.handleScroll}
-        renderItem={(x, y, style) => {
-          const app = apps[y];
-          let item;
-          let loading;
-          if (app) {
-            loading = false;
-            item = (
-              <AppResult
-                ref={this.updateRowHeight}
-                className={styles.appResult}
-                app={app}
-              />
-            );
-          } else {
-            loading = true;
-            item = 'Loading...';
-            this.props.onRequestApp(y);
-          }
-          return (
-            <div
-              className={cx(styles.item, scrolling && styles.scrolling, loading && styles.loading)}
-              style={{
-                ...style,
-                height: this.state.rowHeight,
-              }}
-            >
-              {item}
-            </div>
-          );
-        }}
-      />*/
     );
   }
 
