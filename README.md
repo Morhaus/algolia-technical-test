@@ -25,6 +25,7 @@ DEV_SERVER=true npm start
 * `npm run demon` starts the server and restarts automatically on file change.
 * `npm run build` builds all assets.
 * `npm run load-fixtures` adds all objects under `fixtures/` to the index.
+* `npm run lint` runs ESLint on the project.
 
 ## Configuration
 
