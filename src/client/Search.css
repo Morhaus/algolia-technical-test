@@ -50,7 +50,7 @@
 
   /*
   See https://bugs.chromium.org/p/chromium/issues/detail?id=157218
-  For border-radius to correctly clip the ReactListView, the popOut must
+  For border-radius to correctly clip the VirtualScroll, the popOut must
   be composited.
   This issue is also present in Firefox.
   */
