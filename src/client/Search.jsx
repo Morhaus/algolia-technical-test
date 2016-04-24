@@ -3,9 +3,8 @@ import cx from 'classnames';
 import debounce from 'lodash/debounce';
 import FaSliders from 'react-icons/lib/fa/sliders';
 
-import CATEGORIES from '../categories';
 import AppResultList from './AppResultList';
-import Category from './Category';
+import Filters from './Filters';
 
 import styles from './Search.css';
 
@@ -21,21 +20,11 @@ class Search extends Component {
     this.search = debounce(this.search.bind(this), 200);
     this.handleChange = this.handleChange.bind(this);
     this.search = this.search.bind(this);
-    this.toggleCategory = this.toggleCategory.bind(this);
-    this.handleLowerRankChange = this.handleLowerRankChange.bind(this);
-    this.handleUpperRankChange = this.handleUpperRankChange.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
   }
 
   componentWillUnmount() {
     this.search.cancel();
-  }
-
-  handleChange(e) {
-    this.setState({
-      value: e.target.value,
-    });
-    this.search();
   }
 
   search() {
@@ -46,35 +35,19 @@ class Search extends Component {
     );
   }
 
-  toggleCategory(category) {
-    const idx = this.props.categories.indexOf(category);
-    const newCategories = this.props.categories.slice();
-    if (idx !== -1) {
-      newCategories.splice(idx, 1);
-    } else {
-      newCategories.push(category);
-    }
+  handleFiltersChange(categories, rank) {
     this.props.onSearch(
       this.state.value,
-      newCategories,
-      this.props.rank
+      categories,
+      rank
     );
   }
 
-  handleLowerRankChange(e) {
-    this.props.onSearch(
-      this.state.value,
-      this.props.categories,
-      [e.target.valueAsNumber, this.props.rank[1]]
-    );
-  }
-
-  handleUpperRankChange(e) {
-    this.props.onSearch(
-      this.state.value,
-      this.props.categories,
-      [this.props.rank[0], e.target.valueAsNumber]
-    );
+  handleChange(e) {
+    this.setState({
+      value: e.target.value,
+    });
+    this.search();
   }
 
   toggleFilters() {
@@ -108,38 +81,12 @@ class Search extends Component {
         </div>
         <div className={styles.over}>
           {filtersActive &&
-            <div className={cx(styles.popOut, styles.filters)}>
-              <div className={styles.rankFilter}>
-                Rank between
-                <input
-                  type="number"
-                  min={0}
-                  max={rank[1]}
-                  value={rank[0]}
-                  onChange={this.handleLowerRankChange}
-                />
-                and
-                <input
-                  type="number"
-                  min={rank[0]}
-                  value={rank[1]}
-                  onChange={this.handleUpperRankChange}
-                />
-              </div>
-              <div className={styles.categoryFilter}>
-                <div className={styles.categoryList}>
-                  {CATEGORIES.map(c =>
-                    <Category
-                      key={c}
-                      className={styles.category}
-                      name={c}
-                      selected={categories.indexOf(c) !== -1}
-                      onClick={this.toggleCategory}
-                    />
-                  )}
-                </div>
-              </div>
-            </div>
+            <Filters
+              className={styles.popOut}
+              categories={categories}
+              rank={rank}
+              onChange={this.handleFiltersChange}
+            />
           }
           {value !== '' &&
             <div className={styles.popOut}>
