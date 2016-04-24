@@ -35,10 +35,9 @@
 .name {
   flex: 1;
   font-size: 1.2em;
-  margin-left: 0.6em;
+  margin: 0 0.6em;
   white-space: nowrap;
-  text-overflow: visible;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .category {
