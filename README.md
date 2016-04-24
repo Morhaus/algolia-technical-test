@@ -24,7 +24,7 @@ DEV_SERVER=true npm start
 * `npm start` starts the server.
 * `npm run demon` starts the server and restarts automatically on file change.
 * `npm run build` builds all assets.
-$ `npm run load-fixtures` adds all objects under `fixtures/` to the index.
+* `npm run load-fixtures` adds all objects under `fixtures/` to the index.
 
 ## Configuration
 
