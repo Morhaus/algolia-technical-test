@@ -1,0 +1,16 @@
+.loading {
+  background: rgb(240, 240, 240);
+  box-shadow: 0 -1px 0 rgb(230, 230, 230);
+  padding: 0.8em;
+  display: flex;
+  align-items: center;
+  color: rgb(200, 200, 200);
+}
+
+.item {
+  width: 100%;
+}
+
+.scrolling {
+  pointer-events: none;
+}

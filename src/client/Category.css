@@ -1,0 +1,20 @@
+.category {
+  cursor: pointer;
+
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  white-space: nowrap;
+}
+
+.category:hover {
+  opacity: 0.8;
+}
+
+.category.categorySelected {
+  opacity: 1;
+  color: white;
+  background: #0074D9;
+}

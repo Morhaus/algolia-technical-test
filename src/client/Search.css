@@ -1,0 +1,124 @@
+.container {
+  position: relative;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  margin-right: 0.5em;
+  font-size: 1.2em;
+  border-radius: 0.4em;
+  padding: 0.4em 0.6em;
+  width: 100%;
+  background: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgb(210, 210, 210), inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+}
+
+.toggleFilters {
+  font-size: 2em;
+  cursor: pointer;
+  opacity: 0.3;
+  color: black;
+}
+
+.toggleFilters:hover {
+  opacity: 0.4;
+}
+
+.toggleFilters.filtersActive {
+  color: #0074D9;
+  opacity: 1;
+}
+
+.over {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.popOut {
+  background: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+
+  /*
+  See https://bugs.chromium.org/p/chromium/issues/detail?id=157218
+  For border-radius to correctly clip the ReactListView, the popOut must
+  be composited.
+  This issue is also present in Firefox.
+  */
+  border-radius: 0.4em;
+  overflow: hidden;
+  transform: translate3d(0px, 0px, 0px);
+
+  box-shadow: 0 0 0 2px rgb(210, 210, 210), 0px 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.appResultList {
+  flex-grow: 1;
+
+  /* Can't use max-height here otherwise AutoSizer reports a height of 0 */
+  height: 18em;
+}
+
+.resultsCount {
+  /*
+  For some strange reason, AppResult pointer events still apply to their
+  hidden, overflowing parts. Moving resultsCount to the front
+  somewhat fixes this issue.
+  This issue is not present in Firefox.
+  */
+  position: relative;
+  z-index: 1;
+
+  border-top: 1px solid rgb(220, 220, 220);
+  flex-shrink: 0;
+  color: rgb(100, 100, 100);
+  padding: 0.5em 0.8em;
+}
+
+.resultsCount:only-child {
+  border: none;
+}
+
+.filters {
+  background: white;
+}
+
+.rankFilter {
+  display: flex;
+  align-items: center;
+  padding: 0.6em 0.8em;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.rankFilter > input {
+  border-radius: 0.2em;
+  padding: 0.4em 0.6em;
+  width: 6em;
+  margin: 0 1em;
+  background: white;
+  box-shadow: 0 0 0 1px rgb(210, 210, 210), inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+}
+
+.categoryFilter {
+  padding: 0.6em 0.8em;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.3em -0.3em 0 0;
+}
+
+.category {
+  margin: 0.3em 0.3em 0 0;
+}
