@@ -18,6 +18,7 @@ class Search extends Component {
       filtersActive: false,
     };
     this.search = debounce(this.search.bind(this), 200);
+    this.handleFiltersChange = this.handleFiltersChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.search = this.search.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
