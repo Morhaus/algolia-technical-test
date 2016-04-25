@@ -8,7 +8,8 @@
     "demon": "nodemon --exec npm start",
     "build": "babel-node scripts/build",
     "load-fixtures": "babel-node scripts/loadFixtures",
-    "lint": "eslint . --ext .js,.jsx"
+    "lint": "eslint . --ext .js,.jsx",
+    "postinstall": "npm run build"
   },
   "author": "Alexandre Kirszenberg <alexandre.kirszenberg@gmail.com>",
   "license": "MIT",
